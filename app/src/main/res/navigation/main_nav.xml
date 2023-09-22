@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav"
+    app:startDestination="@id/homeFragment">
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.challenge_3_ilyasa_adam_naufal.HomeFragment"
+        android:label="home_fragment"
+        tools:layout="@layout/home_fragment" >
+        <action
+            android:id="@+id/action_homeFragment_to_fragment_tambah_item"
+            app:destination="@id/fragment_tambah_item" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_tambah_item"
+        android:name="com.example.challenge_3_ilyasa_adam_naufal.fragment_tambah_item"
+        android:label="fragment_add_item"
+        tools:layout="@layout/fragment_add_item" />
+</navigation>

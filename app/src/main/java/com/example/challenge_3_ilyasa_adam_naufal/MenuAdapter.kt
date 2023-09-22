@@ -3,16 +3,20 @@ package com.example.challenge_3_ilyasa_adam_naufal
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class MenuAdapter(private val listmenu: ArrayList<ItemMenu>) :
+class MenuAdapter(
+	private val listmenu: ArrayList<ItemMenu>
+) :
 	RecyclerView.Adapter<MenuAdapter.ViewHolder>() {
 
 	//Class holder
 	class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-		val name = itemView.findViewById<TextView>(R.id.title_list_menu)!!
-		val price = itemView.findViewById<TextView>(R.id.price_list_menu)!!
+		val name = itemView.findViewById<TextView>(R.id.title_menu)!!
+		val price = itemView.findViewById<TextView>(R.id.price_menu)!!
+		val image = itemView.findViewById<ImageView>(R.id.image_menu)!!
 	}
 
 	// Membuat Holder
@@ -23,8 +27,10 @@ class MenuAdapter(private val listmenu: ArrayList<ItemMenu>) :
 	}
 
 	override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-		holder.name.text = listmenu[position].name
-		holder.price.text = listmenu[position].price
+		val (name, price, image) = listmenu[position]
+		holder.name.text = name
+		holder.price.text = price
+		holder.image.setImageResource(image)
 	}
 
 	override fun getItemCount(): Int {
