@@ -30,7 +30,7 @@ class FragmentAddItem: Fragment() {
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 		super.onViewCreated(view, savedInstanceState)
 
-		try {
+		try  {
 			val data = FragmentAddItemArgs.fromBundle(arguments as Bundle)
 
 			binding.nameadd.text = data.nameadd
@@ -44,7 +44,7 @@ class FragmentAddItem: Fragment() {
 				} catch (e: ActivityNotFoundException) {
 					Toast.makeText(
 						requireContext(),
-						"Google Maps tidak terinstal.",
+						"Google Maps tidak terinstall.",
 						Toast.LENGTH_SHORT
 					).show()
 				}

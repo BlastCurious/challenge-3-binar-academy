@@ -35,6 +35,7 @@ class HomeFragment : Fragment() {
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 		super.onViewCreated(view, savedInstanceState)
 		catview()
+		listview()
 		binding.gridlist.setOnClickListener {
 			if (currentview == listviewlayout) {
 				binding.gridlist.setImageDrawable(
@@ -53,11 +54,8 @@ class HomeFragment : Fragment() {
 			}
 
 		}
+	pickitem()
 
-		/*val actionToDetailFragment = HomeFragmentDirections.actionHomeFragmentToFragmentTambahItem()
-		actionToDetailFragment.nameadd
-
-		findNavController().navigate(actionToDetailFragment)*/
 	}
 
 	// List Kategori
@@ -65,7 +63,7 @@ class HomeFragment : Fragment() {
 		Category("Drink", R.drawable.foodiesfeed_com_strawberry_milk_splash),
 		Category("Fast Food", R.drawable.foodiesfeed_com_fried_chicken_commercial),
 		Category("Western", R.drawable.foodiesfeed_com_french_fries_with_ketchup_top_view),
-		Category("Middle East", R.drawable.foodiesfeed_com_pizza_ready_for_baking),
+		Category("Europe", R.drawable.foodiesfeed_com_pizza_ready_for_baking),
 		Category("Asian", R.drawable.foodiesfeed_com_crispy_spicy_chicken_wings)
 	)
 
@@ -99,5 +97,19 @@ class HomeFragment : Fragment() {
 			LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false)
 		binding.recycleviewHorizontal.adapter = CategoryAdapter(listKategori)
 	}
-	
+
+	private fun pickitem() {
+		val adapter = MenuAdapter(listMenu, onItemClick = { selectedItem ->
+
+			val actionToDetailFragment =
+				HomeFragmentDirections.actionHomeFragmentToFragmentTambahItem()
+			actionToDetailFragment.nameadd = selectedItem.name
+			actionToDetailFragment.priceadd = selectedItem.price
+			actionToDetailFragment.imageadd = selectedItem.images
+
+			findNavController().navigate(actionToDetailFragment)
+		})
+
+		binding.recycleviewVertical.adapter = adapter
+	}
 }

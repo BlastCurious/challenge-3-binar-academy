@@ -10,6 +10,7 @@
         android:id="@+id/imageadd"
         android:layout_width="match_parent"
         android:layout_height="@android:dimen/thumbnail_height"
+        android:scaleType="fitXY"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -72,32 +73,66 @@
             android:id="@+id/imgloc"
             android:layout_width="36dp"
             android:layout_height="36dp"
+            android:layout_margin="10dp"
             android:src="@drawable/location_on" />
 
         <TextView
             android:id="@+id/title_loc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="55dp"
+            android:layout_marginTop="10dp"
             android:text="Location" />
 
         <TextView
             android:id="@+id/location"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="55dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="10dp"
             android:text="Kota Wisata-Cibubur, Jl. Wisata Utama Jl. Pesona Amsterdam Raya 1 No.15, Ciangsana, Kec. Gn. Putri, Kabupaten Bogor, Jawa Barat 16968" />
 
 
     </androidx.cardview.widget.CardView>
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@id/btnadd"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cardview2" />
+        android:id="@+id/reduce"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="150dp"
+        android:layout_marginBottom="20dp"
+        android:src="@drawable/reduce"
+        app:layout_constraintBottom_toTopOf="@id/btnadd2"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/btnadd1"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="150dp"
+        android:layout_marginBottom="20dp"
+        android:src="@drawable/sum"
+        app:layout_constraintBottom_toTopOf="@id/btnadd2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/quantity"
+
+        />
+
+    <TextView
+        android:id="@+id/quantity"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
+        android:text="10"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@id/btnadd2"
+        app:layout_constraintEnd_toStartOf="@id/btnadd1"
+        app:layout_constraintStart_toEndOf="@id/reduce" />
 
     <Button
-        android:id="@+id/btnadd"
+        android:id="@+id/btnadd2"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginStart="15dp"

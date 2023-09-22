@@ -1,5 +1,6 @@
 package com.example.challenge_3_ilyasa_adam_naufal
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,7 +9,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 class MenuAdapter(
-	private val listmenu: ArrayList<ItemMenu>
+	private val listmenu: ArrayList<ItemMenu>,
+	var onItemClick: ((ItemMenu) -> Unit)? = null
 ) :
 	RecyclerView.Adapter<MenuAdapter.ViewHolder>() {
 
@@ -31,6 +33,13 @@ class MenuAdapter(
 		holder.name.text = name
 		holder.price.text = price
 		holder.image.setImageResource(image)
+
+		val currentItem = listmenu[position]
+		holder.itemView.setOnClickListener {
+			onItemClick?.invoke(currentItem)
+			Log.d("ItemClicked", "Item clicked {$currentItem}")
+		}
+
 	}
 
 	override fun getItemCount(): Int {
