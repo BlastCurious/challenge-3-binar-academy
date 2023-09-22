@@ -9,17 +9,24 @@ class MainActivity : AppCompatActivity() {
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
 		setContentView(R.layout.activity_main)
+
+		val listkategori = arrayListOf<Kategori>(
+			Kategori("Drink"),
+			Kategori("Fast Food"),
+			Kategori("Western"),
+			Kategori("Middle East"),
+			Kategori("Asian")
+		)
+
 		val listMenu = arrayListOf(
 			ItemMenu("Ayam Panggang", "Rp 75.000"),
 			ItemMenu("Cheese Burger", "Rp 45.000"),
 			ItemMenu("Sushi", "Rp 20.000"),
-			ItemMenu("Spaghetti", "Rp 35.000")
+			ItemMenu("Spaghetti", "Rp 35.000"),
+			ItemMenu("Dimsum", "Rp 40.000"),
+			ItemMenu("Satai Ayam", "Rp 30.000")
 		)
 
-		/*
-
-		val listKategori
-		val adapterH = MenuAdapter()*/
 		val adapterV = MenuAdapter(listMenu)
 
 		val layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
