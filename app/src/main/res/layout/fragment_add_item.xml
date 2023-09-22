@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment_tambah_item">
+    tools:context=".FragmentAddItem">
 
     <ImageView
-        android:id="@+id/image_item"
+        android:id="@+id/imageadd"
         android:layout_width="match_parent"
         android:layout_height="@android:dimen/thumbnail_height"
         app:layout_constraintStart_toStartOf="parent"
@@ -16,10 +16,11 @@
     <ImageView
         android:id="@+id/btnback"
         android:layout_width="40dp"
-        android:layout_margin="20dp"
         android:layout_height="40dp"
+        android:layout_margin="20dp"
+        android:src="@drawable/back"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardview1"
@@ -32,10 +33,10 @@
         app:cardElevation="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/image_item">
+        app:layout_constraintTop_toBottomOf="@+id/imageadd">
 
         <TextView
-            android:id="@+id/title"
+            android:id="@+id/nameadd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
@@ -43,7 +44,7 @@
             android:text="Nama Item" />
 
         <TextView
-            android:id="@+id/price"
+            android:id="@+id/priceadd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right|top"
@@ -68,33 +69,42 @@
         app:layout_constraintTop_toBottomOf="@id/cardview1">
 
         <ImageView
+            android:id="@+id/imgloc"
             android:layout_width="36dp"
-            android:layout_height="36dp"/>
+            android:layout_height="36dp"
+            android:src="@drawable/location_on" />
 
         <TextView
             android:id="@+id/title_loc"
-            android:text="Location"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            />
+            android:text="Location" />
 
         <TextView
             android:id="@+id/location"
-            android:text="Location"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:text="Kota Wisata-Cibubur, Jl. Wisata Utama Jl. Pesona Amsterdam Raya 1 No.15, Ciangsana, Kec. Gn. Putri, Kabupaten Bogor, Jawa Barat 16968" />
 
 
     </androidx.cardview.widget.CardView>
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/btnadd"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardview2" />
+
     <Button
+        android:id="@+id/btnadd"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginStart="15dp"
         android:layout_marginEnd="15dp"
         android:layout_marginBottom="25dp"
+        android:text="Tambahkan ke Keranjang "
         app:layout_constraintBottom_toBottomOf="parent"
-        android:text="Tambahkan ke Keranjang ${aPrice}"
         tools:layout_editor_absoluteX="32dp" />
 
 

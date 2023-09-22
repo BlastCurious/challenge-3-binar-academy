@@ -16,7 +16,7 @@ class FragmentAddItem: Fragment() {
 	private var _binding: FragmentAddItemBinding? = null
 	private val binding get() = _binding!!
 
-	private val locationUri: String = "https://maps.app.goo.gl/h4wQKqaBuXzftGK77"
+	private val locationUri: String = "https://maps.app.goo.gl/SiFzf18kByYndQqg7"
 
 	override fun onCreateView(
 		inflater: LayoutInflater, container: ViewGroup?,
@@ -31,13 +31,13 @@ class FragmentAddItem: Fragment() {
 		super.onViewCreated(view, savedInstanceState)
 
 		try {
-			val data = DetailMenuFragmentArgs.fromBundle(arguments as Bundle)
+			val data = FragmentAddItemArgs.fromBundle(arguments as Bundle)
 
-			binding.nameDetail.text = data.nameDetail
-			binding.priceDetail.text = data.priceDetail
-			binding.imageDetail.setImageResource(data.imageDetail)
+			binding.nameadd.text = data.nameadd
+			binding.priceadd.text = data.priceadd
+			binding.imageadd.setImageResource(data.imageadd)
 
-			binding.detailLocation.setOnClickListener {
+			binding.location.setOnClickListener {
 				try {
 					val intent = Intent(Intent.ACTION_VIEW, Uri.parse(locationUri))
 					startActivity(intent)

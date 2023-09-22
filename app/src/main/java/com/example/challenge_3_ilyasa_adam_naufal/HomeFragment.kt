@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -33,7 +34,7 @@ class HomeFragment : Fragment() {
 
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 		super.onViewCreated(view, savedInstanceState)
-
+		catview()
 		binding.gridlist.setOnClickListener {
 			if (currentview == listviewlayout) {
 				binding.gridlist.setImageDrawable(
@@ -52,9 +53,15 @@ class HomeFragment : Fragment() {
 			}
 
 		}
+
+		/*val actionToDetailFragment = HomeFragmentDirections.actionHomeFragmentToFragmentTambahItem()
+		actionToDetailFragment.nameadd
+
+		findNavController().navigate(actionToDetailFragment)*/
 	}
 
-	private val listkategori = arrayListOf<Category>(
+	// List Kategori
+	private val listKategori = arrayListOf<Category>(
 		Category("Drink", R.drawable.foodiesfeed_com_strawberry_milk_splash),
 		Category("Fast Food", R.drawable.foodiesfeed_com_fried_chicken_commercial),
 		Category("Western", R.drawable.foodiesfeed_com_french_fries_with_ketchup_top_view),
@@ -62,6 +69,7 @@ class HomeFragment : Fragment() {
 		Category("Asian", R.drawable.foodiesfeed_com_crispy_spicy_chicken_wings)
 	)
 
+	// List Menu
 	private val listMenu = arrayListOf(
 		ItemMenu("Grilled Chicken", "Rp 75.000", R.drawable.foodiesfeed_com_grilled_whole_chicken),
 		ItemMenu("Cheese Burger", "Rp 45.000", R.drawable.foodiesfeed_com_cheeseburger),
@@ -71,17 +79,25 @@ class HomeFragment : Fragment() {
 		ItemMenu("Chicken Satay", "Rp 30.000", R.drawable.foodiesfeed_com_grilling_chicken_satay)
 	)
 
+	// RecycleViewList
 	private fun listview() {
 		currentview = listviewlayout
 		binding.recycleviewVertical.layoutManager = LinearLayoutManager(requireActivity())
 		binding.recycleviewVertical.adapter = MenuAdapter(listMenu)
 	}
 
+	// RecycleViewGrid 
 	private fun gridview() {
 		currentview = gridviewlayout
 		binding.recycleviewVertical.layoutManager = GridLayoutManager(requireActivity(), 2)
 		binding.recycleviewVertical.adapter = MenuAdapter(listMenu)
 	}
 
-
+	// RecycleViewCategory
+	private fun catview() {
+		binding.recycleviewHorizontal.layoutManager =
+			LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false)
+		binding.recycleviewHorizontal.adapter = CategoryAdapter(listKategori)
+	}
+	
 }

@@ -12,10 +12,24 @@
         <action
             android:id="@+id/action_homeFragment_to_fragment_tambah_item"
             app:destination="@id/fragment_tambah_item" />
+        <argument
+            android:name="nameadd"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="Data tidak ditemukan" />
+        <argument
+            android:name="priceadd"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="Data tidak ditemukan" />
+        <argument
+            android:name="imageadd"
+            app:argType="integer"
+            android:defaultValue="0" />
     </fragment>
     <fragment
         android:id="@+id/fragment_tambah_item"
-        android:name="com.example.challenge_3_ilyasa_adam_naufal.fragment_tambah_item"
+        android:name="com.example.challenge_3_ilyasa_adam_naufal.FragmentAddItem"
         android:label="fragment_add_item"
         tools:layout="@layout/fragment_add_item" />
 </navigation>
