@@ -36,6 +36,7 @@ class HomeFragment : Fragment() {
 		super.onViewCreated(view, savedInstanceState)
 		catview()
 		listview()
+		pickitem()
 		binding.gridlist.setOnClickListener {
 			if (currentview == listviewlayout) {
 				binding.gridlist.setImageDrawable(
@@ -44,6 +45,7 @@ class HomeFragment : Fragment() {
 					)
 				)
 				gridview()
+
 			} else {
 				binding.gridlist.setImageDrawable(
 					ContextCompat.getDrawable(
@@ -51,10 +53,10 @@ class HomeFragment : Fragment() {
 					)
 				)
 				listview()
-			}
 
+			}
+			pickitem()
 		}
-	pickitem()
 
 	}
 
